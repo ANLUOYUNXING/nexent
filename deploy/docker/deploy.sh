@@ -185,7 +185,9 @@ is_port_in_use() {
 
   # Fallback to netstat (works on Windows and many Linux distributions)
   if command -v netstat >/dev/null 2>&1; then
-    if netstat -an 2>/dev/null | grep -qE "[:\.]${port}[[:space:]]"; then
+    # Only listening sockets: netstat also prints the remote address of
+    # established connections, so an outbound peer on this port false-positives.
+    if netstat -an 2>/dev/null | grep -i "LISTEN" | grep -qE "[:.]${port}([[:space:]]|$)"; then
       return 0
     fi
     return 1

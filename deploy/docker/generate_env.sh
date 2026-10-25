@@ -88,7 +88,7 @@ update_env_file() {
   # Force update development environment service URLs for localhost access
   echo "   🔧 Updating service URLs for localhost development environment..."
 
-  update_env_var "ELASTICSEARCH_HOST" "http://localhost:9210"
+  update_env_var "ELASTICSEARCH_HOST" "http://localhost:9211"
   update_env_var "CONFIG_SERVICE_URL" "http://localhost:5010"
   update_env_var "RUNTIME_SERVICE_URL" "http://localhost:5014"
   update_env_var "ELASTICSEARCH_SERVICE" "http://localhost:5010/api"

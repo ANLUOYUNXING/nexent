@@ -35,7 +35,7 @@ services:
     volumes:
       - ${ROOT_DIR}/elasticsearch:/usr/share/elasticsearch/data
     ports:
-      - "9210:9200" # HTTP API
+      - "9211:9200" # HTTP API (host 9211: QQ owns 9210)
       - "9310:9300" # Cluster communication port
     networks:
       - nexent
@@ -279,7 +279,7 @@ services:
     privileged: true
     ports:
       - "5012:5012"
-      - "5555:5555" # Celery Flower port
+      - "5556:5555" # Celery Flower port (host 5556: 腾讯手游助手 owns 5555)
     volumes:
       - ${NEXENT_USER_DIR:-$HOME/nexent}:/mnt/nexent
       - ../../sql:/opt/nexent/sql:ro

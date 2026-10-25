@@ -2091,13 +2091,13 @@ deployment_compute_docker_ports() {
   fi
 
   if deployment_csv_contains "$DEPLOYMENT_COMPONENTS" "infrastructure"; then
-    ports+=(9210 9310 5434 6379 9010 9011)
+    ports+=(9211 9310 5434 6379 9010 9011)
   fi
   if deployment_csv_contains "$DEPLOYMENT_COMPONENTS" "application"; then
     ports+=(5010 5014 5011 5015 5013 3000)
   fi
   if deployment_csv_contains "$DEPLOYMENT_COMPONENTS" "data-process"; then
-    ports+=(5012 5555)
+    ports+=(5012 5556)
   fi
   if deployment_csv_contains "$DEPLOYMENT_COMPONENTS" "supabase"; then
     ports+=(8000 8443 "${SUPABASE_POSTGRES_PORT:-5436}")
